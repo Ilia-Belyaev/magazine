@@ -1,0 +1,1 @@
+export const SERVER_ADRESS = 'https://dummyjson.com/products?limit=200';
