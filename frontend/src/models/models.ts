@@ -51,3 +51,18 @@ export type Review = {
 export type Reviews = Review[];
 
 export type AuthStatus = 'UNKNOWN' | 'AUTH' | 'NO_AUTH';
+
+export type StockStatusValue = {
+    status: 'INCREMENT' | 'DECREMENT';
+    id: number;
+}
+
+export type AuthData = {
+    login: string | null;
+    password: string | null;
+}
+
+export type UserData = {
+    email: string;
+    token: string;
+}

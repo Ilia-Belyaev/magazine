@@ -2,4 +2,95 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  gap: 10px;
+  z-index: 0;
+  justify-content: flex-start;
+  margin: auto;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.card-image {
+  width: 100%;
+  transition: transform 400ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-image:hover {
+  transform:scale(1.2);
+}
+
+.card-button-container {
+  display: flex;
+  position: relative;
+  right: 0%;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid var(--blue-400);
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+.card-big-button-container {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card-button-add {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 15px;
+}
+
+.card-title {
+  text-align: center;
+  color: var(--blue-800);
+}
+
+.stock-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.card-rating-container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+
+.card-rating-img {
+  width: 15px;
+  height: 15px;
+}
+
+.card-images-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-favorite-img {
+  width: 25px;
+  height: 25px;
+}
+
+.card-favorite-container {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 1;
 }

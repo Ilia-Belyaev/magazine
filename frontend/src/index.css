@@ -1,18 +1,19 @@
 :root {
-  --main-theme-indigo-steel-start: #2c3e50;
-  --main-theme-indigo-steel-end: #4ca1af; 
-  --main-theme-crimson-velvet-start: #5a2a27;
-  --main-theme-crimson-velvet-end: #9a4d42;
-  --main-theme-emerald-dusk-start: #134e5e;
-  --main-theme-emerald-dusk-end: #71b280;
-  --main-theme-mocha-mist-start: #b79891;
-  --main-theme-mocha-mist-end: #94716b;
-  --main-theme-royal-charcoal-start: #232526;
-  --main-theme-royal-charcoal-end: #414345;
-  --main-theme-bronze-eclipse-start: #3c2a21;
-  --main-theme-bronze-eclipse-end: #8e735b;
-  --main-theme-obsidian-plum-start: #3a1c71;
-  --main-theme-obsidian-plum-end: #d76d77;  
+  --blue-50: #f1f1ff;
+  --blue-100: #dadaff;
+  --blue-200: #b8b7ff;
+  --blue-300: #9897ff;
+  --blue-400: #7978ff;
+  --blue-500: #5858ff;
+  --blue-600: #2f31ff;
+  --blue-700: #0f15f1;
+  --blue-800: #080cb4;
+  --blue-900: #030372;
+  --blue-950: #010250;
+  --img-size: 30px;
 }
 
-
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+}

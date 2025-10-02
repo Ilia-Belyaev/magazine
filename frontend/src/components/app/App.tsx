@@ -6,8 +6,12 @@ import Main from '../../pages/main/main';
 import Basket from '../../pages/basket/basket';
 import PrivateRoute from '../private-route/private-route';
 import CurrentProduct from '../../pages/current-product/current-product';
+import UserCabinet from '../../pages/user-cabinet/user-cabinet';
+import { useAppSelector } from '../hooks';
+import { getAuth } from '../../store/slices/auth/selectors';
 
 export default function App() {
+  const authorizationStatus = useAppSelector(getAuth);
 
   return (
     <BrowserRouter>
@@ -18,7 +22,7 @@ export default function App() {
         />
         <Route
           path={AppRoute.Login}
-          element={<Login/>}
+          element={<Login auth={authorizationStatus}/>}
         />
         <Route
           path={AppRoute.Basket}
@@ -35,6 +39,10 @@ export default function App() {
         <Route
           path={AppRoute.CurrentProduct}
           element={<CurrentProduct/>}
+        />
+        <Route
+          path={AppRoute.UserCabinet}
+          element={<UserCabinet />}
         />
       </Routes>
     </BrowserRouter>

@@ -2,19 +2,21 @@ import express, { json } from "express";
 import cors from "cors";
 import { sign } from "jsonwebtoken";
 import { hashSync, compareSync } from "bcryptjs";
-import { SERVER_ADRESS } from "./constants";
+import { CATEGORIES, SERVER_ADRESS } from "./constants";
 import { Categories, InnerProducts, Products } from "./types";
 
 const app = express();
 app.use(cors());
 app.use(json());
 
-// let users = [
-//   { id: 1, email: "test@test.com", password: hashSync("123456", 8), cart: [] }
-// ];
+const id = crypto.randomUUID.toString();
+
+let users = [
+  { id: id, email: "test@test.com", password: hashSync("123456", 8), cart: [] }
+];
 
 let products: Products = [];
-// let categories: Categories = [];
+let categories: Categories = [];
 
 async function initProducts() {
   try {
@@ -35,21 +37,51 @@ async function initProducts() {
 
 initProducts();
 
-// const SECRET = "supersecret";
+async function initCategories() {
+  try {
+    const response = await fetch(CATEGORIES);
+
+    if (!response.ok) {
+      throw new Error('Server is not available')
+    }
+
+    const data = await response.json() as Categories;
+
+    categories = data;
+  } catch (error) {
+    throw new Error(error as string);
+  }
+  
+}
+
+initCategories();
+
+const SECRET = "supersecret";
 
 // Логин
-// app.post("/login", (req, res) => {
-//   const { email, password } = req.body;
-//   const user = users.find(u => u.email === email);
-//   if (!user || !compareSync(password, user.password)) {
-//     return res.status(401).json({ message: "Invalid credentials" });
-//   }
-//   const token = sign({ id: user.id }, SECRET, { expiresIn: "1h" });
-//   res.json({ token });
-// });
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  const user = users.find(u => u.email === email);
+  const id = crypto.randomUUID.toString();
+  const token = sign({ id: id }, SECRET, { expiresIn: "1h" });
+  console.log(users)
+  switch (true) {
+    case (user && !compareSync(password, user.password)):
+      return res.status(401).json({ message: "Invalid credentials" });
+    case (!user):
+      users.push({id: id, email: email, password: hashSync(password, 8), cart: []  });
+      
+      return res.json({ token, email });
+    case (user && compareSync(password, user.password)):
+      return res.json({ token, email });
+  }
+});
+
 
 // Получение товаров
 app.get("/products", (req, res) => res.json(products));
+//получение категорий
+app.get('/categories',(req, res) => res.json(categories));
 
 // Корзина
 // app.post("/cart", (req, res) => {

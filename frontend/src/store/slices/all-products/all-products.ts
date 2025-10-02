@@ -2,8 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { NameSpace } from '../../../constants';
 import { Products } from '../../../models/models';
 import { getCards } from '../api-actions';
+import { decrementProduct, incrementProduct } from './actions';
+import { replaceStockCurrentProduct } from '../../../utilities/utilities';
 
-export const AllProducts = createSlice ({
+export const allProducts = createSlice ({
   name: NameSpace.Products,
   initialState: {
     products: [] as Products,
@@ -24,6 +26,12 @@ export const AllProducts = createSlice ({
       .addCase(getCards.rejected, (state) => {
         state.isError = true;
         state.isLoading = false;
+      })
+      .addCase(decrementProduct, (state, action) => {
+        state.products = replaceStockCurrentProduct(state.products, action.payload);
+      })
+      .addCase(incrementProduct, (state, action) => {
+        state.products = replaceStockCurrentProduct(state.products, action.payload);
       });
   },
 });
