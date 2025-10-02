@@ -1,5 +1,5 @@
 import { Products } from '../../models/models';
-import ProductCard from './product-card';
+import { MemoProductCard } from './product-card';
 import './product-cards.css';
 
 type ProductCardsProps = {
@@ -7,8 +7,8 @@ type ProductCardsProps = {
 }
 export default function ProductCards({cards}: ProductCardsProps) {
   return (
-    <div className='product-card-container'>
-      {cards.map((card) => <ProductCard card={card} key={card.id}/>)}
-    </div>
+    <main className='product-card-container'>
+      {cards.map((card) => <MemoProductCard card={card} key={card.id}/>)}
+    </main>
   );
 }
