@@ -6,6 +6,7 @@ import './nav-bar.css';
 
 export default function NavBar() {
   const categories = useAppSelector(getCategories);
+
   return (
     <nav>
       <ul className='category-list'>

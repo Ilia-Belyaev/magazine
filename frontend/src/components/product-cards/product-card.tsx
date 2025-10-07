@@ -1,25 +1,26 @@
 import { Product } from '../../models/models';
 import { memo, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { decrementProduct, incrementProduct } from '../../store/slices/all-products/actions';
-import { AppRoute, StockStatus } from '../../constants';
+import { setCurrentFavoriteProduct, decrementProduct, incrementProduct } from '../../store/slices/all-products/actions';
+import { AppRoute, AuthorizationStatus, StockStatus } from '../../constants';
 import Rating from '../../images/user-interface/rating.svg';
 import { getAuth } from '../../store/slices/auth/selectors';
 import Favorite from '../../images/user-interface/favorites.svg';
 import AddedFavorite from '../../images/user-interface/added-favorite.svg';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { addProductToTheBasket, removeProductFromBasket } from '../../store/slices/basket/actions';
+import { removeFavoriteProduct, setFavoriteProduct } from '../../store/slices/api-actions';
 
 type ProductCardProps = {
   card: Product;
+  customCount?: number;
 }
 
-function ProductCard({card}: ProductCardProps) {
+function ProductCard({card, customCount}: ProductCardProps) {
   const dispatch = useAppDispatch();
   const auth = useAppSelector(getAuth);
-  const {title, thumbnail, price, stock, id, rating} = card;
-  const [count, setCount] = useState(0);
-  const [favorite, setFavorite] = useState(false);
+  const {title, thumbnail, price, stock, id, rating, isFavorite} = card;
+  const [count, setCount] = useState(customCount ? customCount : 0);
   const [redirect, setRedirect] = useState(false);
 
   if (redirect) {
@@ -39,10 +40,18 @@ function ProductCard({card}: ProductCardProps) {
   };
 
   const handleImgClick = () => {
-    if (auth === 'AUTH') {
-      setFavorite((prev) => !prev);
-    } else {
+    if (auth !== AuthorizationStatus.Auth) {
       setRedirect(true);
+
+      return;
+    }
+
+    if (!card.isFavorite) {
+      dispatch(setFavoriteProduct(card));
+      dispatch(setCurrentFavoriteProduct(card.id));
+    } else {
+      dispatch(removeFavoriteProduct(card));
+      dispatch(setCurrentFavoriteProduct(card.id));
     }
   };
 
@@ -50,13 +59,15 @@ function ProductCard({card}: ProductCardProps) {
     <div className='card-container'>
       <div className='card-images-container'>
         <div className='card-favorite-container' onClick={handleImgClick}>
-          <img className='card-favorite-img' src={favorite ? AddedFavorite as string : Favorite as string}/>
+          <img className='card-favorite-img' src={isFavorite ? AddedFavorite as string : Favorite as string}/>
         </div>
         <div className='card-rating-container'>
           <img className='card-rating-img' src={Rating as string}/>
           <span className='card-rating'>{rating}</span>
         </div>
-        <img src={thumbnail} className='card-image'/>
+        <Link to={`/currentProduct/${card.id}`}>
+          <img src={thumbnail} className='card-image' />
+        </Link>
       </div>
       {count === 0 ?
         <div className='card-button-container'>

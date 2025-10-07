@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { NameSpace } from '../../../constants';
 import { Products } from '../../../models/models';
 import { getCards } from '../api-actions';
-import { decrementProduct, incrementProduct } from './actions';
-import { replaceStockCurrentProduct } from '../../../utilities/utilities';
+import { setCurrentFavoriteProduct, decrementProduct, incrementProduct } from './actions';
+import { addCurrentFavoriteProductFromState, replaceStockCurrentProduct } from '../../../utilities/utilities';
 
 export const allProducts = createSlice ({
   name: NameSpace.Products,
@@ -32,6 +32,9 @@ export const allProducts = createSlice ({
       })
       .addCase(incrementProduct, (state, action) => {
         state.products = replaceStockCurrentProduct(state.products, action.payload);
+      })
+      .addCase(setCurrentFavoriteProduct, (state, action) => {
+        state.products = addCurrentFavoriteProductFromState(state.products, action.payload);
       });
   },
 });

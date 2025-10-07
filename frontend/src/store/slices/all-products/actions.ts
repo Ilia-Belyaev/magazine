@@ -5,3 +5,5 @@ export const decrementProduct = createAction<StockStatusValue>('decrementCurrent
 
 export const incrementProduct = createAction<StockStatusValue>('incrementCurrentProduct');
 
+export const setCurrentFavoriteProduct = createAction<number>('addCurrentFavoriteProduct');
+
