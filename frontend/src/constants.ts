@@ -28,7 +28,7 @@ export enum AppRoute {
   Login = '/login',
   NotFound = '/*',
   Basket = '/basket',
-  CurrentProduct = '/current',
+  CurrentProduct = '/currentProduct/:id',
   UserCabinet = '/cabinet',
 }
 
@@ -43,6 +43,9 @@ export enum NameSpace {
   Categories = 'Categories',
   Auth = 'Auth',
   Basket = 'Basket',
+  User = 'User',
+  FavoritesProducts = 'FavoritesProducts',
+  CurrentProduct = 'CurrentProduct',
 }
 
 export enum ApiRoute {
@@ -50,6 +53,11 @@ export enum ApiRoute {
   Categories = '/categories',
   Login = '/login',
   Logout = '/logout',
+  GetFavorites = '/getFavorites',
+  SetFavorite = '/setFavorite',
+  DropFavorite = '/dropFavorite',
+  CheckLogin = '/checkLogin',
+  CurrentProduct = '/currentProduct',
 }
 
 export enum StockStatus {

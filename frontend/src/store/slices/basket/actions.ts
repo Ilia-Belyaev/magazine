@@ -5,3 +5,4 @@ export const addProductToTheBasket = createAction<Product>('addProductToTheBaske
 
 export const removeProductFromBasket = createAction<Product>('removeProductFromBasket');
 
+export const removeBasket = createAction('removeBasket');

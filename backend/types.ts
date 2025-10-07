@@ -23,6 +23,7 @@ export type Product = {
   dimensions: Dimension;
   meta: Meta;
   reviews: Reviews;
+  isFavorite: boolean;
 };
 
 export type Products = Product[];

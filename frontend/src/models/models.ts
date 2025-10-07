@@ -2,6 +2,7 @@ export type Categories = string[];
 
 export type Product = {
   id: number;
+  isFavorite: boolean;
   title: string;
   description: string;
   category: string;
@@ -24,6 +25,13 @@ export type Product = {
   meta: Meta;
   reviews: Reviews;
 };
+
+export type CustomProduct = {
+    product: Product;
+    count: number;
+}
+
+export type CustomProducts = CustomProduct[];
 
 export type Products = Product[];
 

@@ -9,6 +9,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  text-decoration: none;
+  color: black;
 }
 
 .basket-counter {

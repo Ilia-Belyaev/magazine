@@ -5,8 +5,8 @@ import Login from '../../pages/login/login';
 import Main from '../../pages/main/main';
 import Basket from '../../pages/basket/basket';
 import PrivateRoute from '../private-route/private-route';
-import CurrentProduct from '../../pages/current-product/current-product';
-import UserCabinet from '../../pages/user-cabinet/user-cabinet';
+import { CurrentProductScreen } from '../../pages/current-product/current-product';
+import { UserCabinetScreen } from '../../pages/user-cabinet/user-cabinet';
 import { useAppSelector } from '../hooks';
 import { getAuth } from '../../store/slices/auth/selectors';
 
@@ -26,11 +26,7 @@ export default function App() {
         />
         <Route
           path={AppRoute.Basket}
-          element = {
-            <PrivateRoute authorizationStatus={'NO_AUTH'}>
-              <Basket />
-            </PrivateRoute>
-          }
+          element = {<Basket />}
         />
         <Route
           path={AppRoute.NotFound}
@@ -38,11 +34,15 @@ export default function App() {
         />
         <Route
           path={AppRoute.CurrentProduct}
-          element={<CurrentProduct/>}
+          element={<CurrentProductScreen />}
         />
         <Route
           path={AppRoute.UserCabinet}
-          element={<UserCabinet />}
+          element={
+            <PrivateRoute authorizationStatus={authorizationStatus}>
+              <UserCabinetScreen />
+            </PrivateRoute>
+          }
         />
       </Routes>
     </BrowserRouter>
