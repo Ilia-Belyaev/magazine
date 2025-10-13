@@ -52,3 +52,13 @@ export const addCurrentFavoriteProductFromState = (state: Products, currentProdu
 
   return newState;
 };
+
+export const isCorrectPass = (pass: string) => {
+  const isPassLength = (/^.{8,}/.test(pass));
+  const isPassHaveDigit = (/^(?=.*\d).+$/.test(pass));
+  const isPassHaveLowerCase = (/^(?=.*[a-zа-яё]).+$/.test(pass));
+  const isPassHaveUpperCase = (/^(?=.*[A-ZА-ЯЁ]).+$/.test(pass));
+  const isPassHaveSpecialSymbol = (/^(?=.*\W).+$/.test(pass));
+
+  return [isPassHaveDigit, isPassHaveUpperCase, isPassHaveLowerCase, isPassHaveSpecialSymbol, isPassLength];
+};

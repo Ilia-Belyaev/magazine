@@ -59,10 +59,10 @@ function ProductCard({card, customCount}: ProductCardProps) {
     <div className='card-container'>
       <div className='card-images-container'>
         <div className='card-favorite-container' onClick={handleImgClick}>
-          <img className='card-favorite-img' src={isFavorite ? AddedFavorite as string : Favorite as string}/>
+          <img className='card-favorite-img' src={isFavorite ? AddedFavorite : Favorite}/>
         </div>
         <div className='card-rating-container'>
-          <img className='card-rating-img' src={Rating as string}/>
+          <img className='card-rating-img' src={Rating}/>
           <span className='card-rating'>{rating}</span>
         </div>
         <Link to={`/currentProduct/${card.id}`}>

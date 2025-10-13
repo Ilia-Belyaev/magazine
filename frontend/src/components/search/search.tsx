@@ -6,7 +6,7 @@ export default function Search() {
   return (
     <div className='search-container'>
       <input className='search-input-container' placeholder='find products'/>
-      <img className='search-img' src={SearchLogo as string}/>
+      <img className='search-img' src={SearchLogo}/>
     </div>
   );
 }
