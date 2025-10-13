@@ -22,6 +22,11 @@ import WomenDresses from './images/categories/wedding-dress-icon.svg';
 import WomenTops from './images/categories/woman-dress-outline-icon.svg';
 import WomenWatches from './images/categories/wrist-watch-black-icon.svg';
 import WomenShoes from './images/categories/heel-sandal-icon.svg';
+import VK from './images/social-media/vk.svg';
+import Telegram from './images/social-media/telegram.svg';
+import Mail from './images/social-media/mail.svg';
+import LinkedIn from './images/social-media/linkedin.svg';
+import Github from './images/social-media/github.svg';
 
 export enum AppRoute {
   Main = '/',
@@ -90,5 +95,40 @@ export const CATEGORY_IMAGES = [
   WomenJewellery,
   WomenShoes,
   WomenWatches,
-] as string[];
+];
+
+export const SOCIAL_MEDIA = [
+  {
+    id: 1,
+    name: VK,
+    title: 'VKontakte',
+    href: 'https://vk.ru'
+  },
+  {
+    id: 2,
+    name: Telegram,
+    title: 'Telegram',
+    href: 'https://web.telegram.org/a/'
+  },
+  {
+    id: 3,
+    name: Mail,
+    title: 'Mail',
+    href: 'https://mail.ru/'
+  },
+  {
+    id: 4,
+    name: LinkedIn,
+    title: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/ilya-belyaev-5ba55a1ab'
+  },
+  {
+    id: 5,
+    name: Github,
+    title: 'Github',
+    href: 'https://github.com/Ilia-Belyaev'
+  },
+];
+
+export const FOOTER_TEXT = 'I am a Junior Frontend Developer with a focus on React, JavaScript, and Redux. Recently, I completed frontend development courses and am actively building personal projects to strengthen my skills.';
 

@@ -19,16 +19,16 @@ export default function Auth() {
   return auth === AuthorizationStatus.Auth ? (
     <>
       <Link to={AppRoute.UserCabinet}className='auth-container'>
-        <img className='auth-img-container' src={User as string} />
+        <img className='auth-img-container' src={User} />
         <div>Cabinet</div>
       </Link>
       <Link to={ApiRoute.Login} className='auth-container' onClick={handleClick}>
-        <img className='auth-img-container' src={Logout as string}/>
+        <img className='auth-img-container' src={Logout}/>
         <div>Logout</div>
       </Link>
     </>) : (
     <Link to={ApiRoute.Login} className='auth-container'>
-      <img className='auth-img-container' src={Login as string}/>
+      <img className='auth-img-container' src={Login}/>
       <div>Login</div>
     </Link>
   );

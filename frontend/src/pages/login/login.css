@@ -1,0 +1,134 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: #040D2E;
+  background: linear-gradient(115deg,
+    rgba(4, 13, 46, 1) 0%, 
+    rgba(8, 44, 75, 1) 50%, 
+    rgba(4, 40, 90, 1) 62%, 
+    rgba(4, 66, 130, 1) 75%, 
+    rgba(4, 108, 188, 1) 88%, 
+    rgba(12, 181, 235, 1) 100%);
+}
+
+.login-form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top:20%;
+  left:10%;
+  gap: 45px;
+}
+
+.email, .password, .submit {
+  width: 250px;
+  height: 35px;
+  border: 2px solid rgb(12, 181, 235);
+  border-radius: 12px;
+}
+
+.submit:hover {
+  background-color: rgb(4, 13, 46);
+  color: white;
+}
+
+.login-form-container {
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  justify-items: center;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgb(4, 108, 188);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.login-sign-text {
+  color: rgb(4, 13, 46);
+  z-index: 2;
+}
+
+.form-item {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.placeholder {
+  position: absolute;
+  pointer-events: none;
+  left: 15px;
+  top: 50%;
+  transform: translate(0,-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 40px;
+  transition: .3s;
+}
+
+.email:focus ~.placeholder, .password:focus~.placeholder{
+  color: rgb(12, 181, 235);
+  top: -10px;
+  left: 10;
+  font-size: 10px;
+}
+
+.email:not(:placeholder-shown) + .placeholder, .password:not(:placeholder-shown) + .placeholder {
+  color: rgb(12, 181, 235);
+  top: -10px;
+  left: 10;
+  font-size: 10px;
+} 
+
+.login-background {
+  width: 100%;
+  height: 100%;
+}
+
+.pass-hint {
+  visibility: hidden;
+  color: white;
+  font-size: 10px;
+  position: absolute;
+  width: 100%;
+  margin-left: 5px;
+  margin-top: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pass-hint.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pass-part-correct {
+  color: green;
+}
+
+.pass-part-incorrect {
+  color: red;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-5px);
+  }
+  40%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}

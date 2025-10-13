@@ -10,13 +10,13 @@ export default function Main() {
   const cards = useAppSelector(getProducts);
 
   return (
-    <>
+    <div className='main-page'>
       <Header />
       <div className='nav-main-container'>
         <ProductCards cards={cards} />
         <NavBar />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
