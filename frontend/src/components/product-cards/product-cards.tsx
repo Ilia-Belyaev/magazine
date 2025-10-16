@@ -8,7 +8,9 @@ type ProductCardsProps = {
 export default function ProductCards({cards}: ProductCardsProps) {
   return (
     <main className='product-card-container'>
-      {cards.map((card) => <MemoProductCard card={card} key={card.id}/>)}
+      <div className='product-card-inner-container'>
+        {cards.map((card) => <MemoProductCard card={card} key={card.id}/>)}
+      </div>
     </main>
   );
 }

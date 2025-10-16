@@ -1,11 +1,6 @@
-.nav-main-container {
-  display: grid;
-  grid-template-columns: 5fr 2fr;
-  flex: 1;
-}
-
 .main-page {
   min-height: 100vh;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }

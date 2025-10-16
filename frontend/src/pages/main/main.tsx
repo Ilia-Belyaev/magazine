@@ -1,7 +1,6 @@
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import { useAppSelector } from '../../components/hooks';
-import NavBar from '../../components/nav-bar/nav-bar';
 import ProductCards from '../../components/product-cards/product-cards';
 import { getProducts } from '../../store/slices/all-products/selectors';
 import './main.css';
@@ -12,9 +11,8 @@ export default function Main() {
   return (
     <div className='main-page'>
       <Header />
-      <div className='nav-main-container'>
+      <div className='main-container'>
         <ProductCards cards={cards} />
-        <NavBar />
       </div>
       <Footer />
     </div>

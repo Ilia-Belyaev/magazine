@@ -14,7 +14,7 @@ const id = crypto.randomUUID.toString();
 let users = [
   { id: id,
     email: "test@test.com",
-    password: hashSync("123456", 8),
+    password: hashSync("Ili@1111", 8),
     favorites: [] as Products,
   }
 ];
