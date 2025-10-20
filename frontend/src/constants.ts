@@ -132,3 +132,9 @@ export const SOCIAL_MEDIA = [
 
 export const FOOTER_TEXT = 'I am a Junior Frontend Developer with a focus on React, JavaScript, and Redux. Recently, I completed frontend development courses and am actively building personal projects to strengthen my skills.';
 
+export const PLACEHOLDERS = [
+  'Find products',
+  'Search for shoes',
+  'Looking for laptops?',
+  'Try "smartphone"',
+];

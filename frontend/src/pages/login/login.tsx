@@ -31,7 +31,7 @@ export default function Login({auth}: LoginProps) {
     setClasses(isCorrectPass(passwordRef.current?.value as string));
   };
 
-  const handleShake = () => {//так же добавить таймаут с очисткой на то, чтобы показывать сообщение о некорректном пароле
+  const handleShake = () => {
     if (!buttonRef.current) {
       return;
     }
@@ -81,7 +81,6 @@ export default function Login({auth}: LoginProps) {
           <img src={BackToMain} className='back-to-main' />
         </div>
         <img src={LoginBackground} className='login-background'/>
-        {/* <h1 className='login-sign-text'>Sign in</h1> */}
         <form onSubmit={handleSubmit} className='login-form' autoComplete="off">
           <div className='form-item'>
             <input id='email' type='email' placeholder=' ' ref={loginRef} className='email' required/>

@@ -29,16 +29,18 @@ export default function Categories() {
   }, []);
 
   return (
-    <div onClick={() => setShow(true)} className='categories-outer-container' ref={categoriesRef}>
-      <div className='categories-img-container' >
-        <img src={AllCategories} className='all-categories-img'/>
-        <div>Categories</div>
+    <>
+      <div onClick={() => setShow(true)} className='categories-outer-container' ref={categoriesRef}>
+        <div className='categories-img-container' >
+          <img src={AllCategories} className='all-categories-img'/>
+          <div className='categories_name'>Categories</div>
+        </div>
       </div>
       <div className={cn('categories-container', show ? 'visible' : '')} ref={listRef}>
         <ul className='category-list'>
           {categories.map((category, index) => <Category key={category} category={category} image={CATEGORY_IMAGES[index]}/>)}
         </ul>
       </div>
-    </div>
+    </>
   );
 }

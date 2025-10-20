@@ -42,16 +42,20 @@
 
 .login-form-container {
   position: absolute;
-  width: 1000px;
-  height: 500px;
+  width: 80%;
+  max-width: 1000px;
+  aspect-ratio: 2 / 1;
   top: 50%;
   left: 50%;
-  justify-items: center;
   transform: translate(-50%, -50%);
   border: 2px solid rgb(4, 108, 188);
   border-radius: 20px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .login-sign-text {
   color: rgb(4, 13, 46);
@@ -91,9 +95,13 @@
 } 
 
 .login-background {
+  position: absolute;
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Масштабирует без искажения */
+  z-index: -1;
 }
+
 
 .pass-hint {
   visibility: hidden;
@@ -164,4 +172,75 @@
 
 .back-to-main-container:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px){
+  .login-background{
+    display: none;
+  }
+
+  .login-form-container {
+    position: absolute;
+    width: 420px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgb(4, 108, 188);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top:50%;
+    left:55%;
+    gap: 45px;
+    transform: translate(-50%, -50%);
+  }
+
+}
+
+@media screen and (max-width: 440px){
+  .login-background{
+    display: none;
+  }
+
+  .login-form-container {
+    position: absolute;
+    width: 340px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgb(4, 108, 188);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top:50%;
+    left:55%;
+    gap: 45px;
+    transform: translate(-50%, -50%);
+  }
+  .eye-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+  }
+
 }
