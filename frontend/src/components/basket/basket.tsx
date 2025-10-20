@@ -12,7 +12,7 @@ export default function Basket() {
     <Link to={AppRoute.Basket} className='basket-container'>
       <img className='basket-img-container' src={BasketProducts}/>
       <div className='basket-counter'>{basketProductsCount}</div>
-      <div>Basket</div>
+      <div className='basket-name'>Basket</div>
     </Link>
   );
 }
